@@ -104,9 +104,12 @@ const init = () => {
 
       const name = domoForm.querySelector('#domoName').value;
       const age = domoForm.querySelector('#domoAge').value;
-
       if(!name || !age) {
         handleError('All fields are required!');
+        return false;
+      }
+      else if (isNaN(age)) {
+        handleError('Age must be a number!');
         return false;
       }
 
